@@ -16,15 +16,13 @@ public class Skills {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String nombre;
-    private String urlImageLogo;
     private int porcentaje;
 
     public Skills() {
     }
 
-    public Skills(String nombre, String urlImageLogo, int porcentaje) {
+    public Skills(String nombre, int porcentaje) {
         this.nombre = nombre;
-        this.urlImageLogo = urlImageLogo;
         this.porcentaje = porcentaje;
     }
 

@@ -1,8 +1,6 @@
 package com.yamila.Yamila.Controller;
 
-import com.yamila.Yamila.DTO.ExperienciaDTO;
 import com.yamila.Yamila.DTO.SkillsDTO;
-import com.yamila.Yamila.Entity.Experiencia;
 import com.yamila.Yamila.Entity.Skills;
 import com.yamila.Yamila.Security.Controller.Mensaje;
 import com.yamila.Yamila.Service.SkillsService;
@@ -51,7 +49,7 @@ public class SkillsController {
             return new ResponseEntity(new Mensaje("Esa habilidad existe"), HttpStatus.BAD_REQUEST);
         }
 
-        Skills skills = new Skills(skillsDTO.getNombre(), skillsDTO.getUrlImageLogo(), skillsDTO.getPorcentaje());
+        Skills skills = new Skills(skillsDTO.getNombre(), skillsDTO.getPorcentaje());
 
         skillService.save(skills);
         return new ResponseEntity(new Mensaje("Habilidad agregada"), HttpStatus.OK);
@@ -74,7 +72,6 @@ public class SkillsController {
 
         Skills skills = skillService.getOne(id).get();
         skills.setNombre(skillsDTO.getNombre());
-        skills.setUrlImageLogo(skillsDTO.getUrlImageLogo());
         skills.setPorcentaje(skillsDTO.getPorcentaje());
 
         skillService.save(skills);
